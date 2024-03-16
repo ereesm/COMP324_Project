@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 header {
-    background-color: #a392eb;
+    background-color: rgba(163, 146, 235, 0.9); /* #a392eb; */
     color: white;
     padding: 10px;
     text-align: left;
 }
 .welcome-text{
+    display: none;
     text-align:left;
 }
 
@@ -14,17 +17,20 @@ header {
 
 
 .navbar{
-    background-color: #a392eb;
+    width: calc(100%  - 20px);
+    margin: 0 auto;
+    background-color: rgba(163, 146, 235, 0.8);
     overflow:hidden;
+    padding: 10px;
 }
 
 .navbar a{
     float: left;
-    color: #f2f2f2;
+    color: white; /* Text color set to white */
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 16px; /* Padding adjusted */
     text-decoration: none;
-    font-size: 17px;
+    font-size: 17px; /* Font size adjusted */
 }
 
 .navbar a.active{
@@ -46,7 +52,11 @@ header {
     font-size: 17px;
 }
 
-
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #291c59;
+    color: white;
+}
 
 ul{
     list-style-type: none;
@@ -69,4 +79,105 @@ ul{
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.movie-section {
+    width: calc(100% - 20px); /* Width of the nav bar minus its left and right padding */
+    margin: 20px auto; /* Center the movie section horizontally */
+    background-color: rgba(163, 146, 235, 0.8); /* Same color as the nav bar */
+    padding: 10px; /* Half the size of the original padding */
+    box-sizing: border-box; /* Include padding in width calculation */
+    margin-top: 20px; /* Add margin between the nav bar and the movie section */
+}
+
+.movie-details {
+    display: flex; /* Use flexbox for layout */
+}
+
+.movie-details img {
+    max-width: calc(50% - 10px); /* Image width is half the width of the movie section minus padding */
+    margin-right: 10px; /* Spacing between image and text */
+}
+
+.text-details {
+    flex: 1; /* Allow text details to fill remaining space */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    margin-left: 10px;
+    margin-top: -20px;
+    padding-right: 10px;
+}
+
+.text-details h2 {
+    font-size: 60px;
+    font-weight:  bold;
+    margin-bottom: 10px;
+}
+
+.text-details p {
+    text-align: justify;
+}
+
+.navigation-header {
+    color: #5943a8;
+    padding: 10px; /* Padding of the navigation header */
+
+}
+
+.navigation-header h2 {
+    margin: 0; /* Remove default margin */
+}
+
+.movie-images {
+    display: flex; /* Use flexbox for layout */
+    padding: 5px; /* Padding between movie images */
+    position: relative; /* Ensure movie images are positioned relative to this container */
+    white-space: nowrap; /* Prevent movie images from wrapping */
+    overflow-x: hidden;
+}
+
+.movie-images img {
+    width: 225px; /* Automatically adjust image width */
+    height: 150px; /* Fixed height for movie images */
+    margin-right: 10px; /* Margin between movie images */
+    object-fit: cover;
+    transition: left 1s ease;
+    transform-origin: center center;
+}
+
+.movie-images img:hover {
+    transform: scale(1.5); /* Scale the image slightly when hovered over */
+    z-index: 1;
+}
+
+.navigation-box {
+    width: calc(100% - 20px); /* Width of the page minus padding */
+    margin: 0 auto; /* Center the navigation box horizontally */
+    background-color: rgba(163, 146, 235, 0.9); /* Color of the navigation box */
+    padding: 5px; /* Padding within the navigation box */
+    box-sizing: border-box; /* Include padding in width calculation */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    position: relative;
+}
+
+.navigation-box h2 {
+    margin-top: 0; /* Font size of the navigation title */
+}
+
+.prev-button, .next-button {
+    position: absolute; /* Position the buttons */
+    top: 50%; /* Align buttons vertically */
+    transform: translateY(-50%); /* Center the buttons vertically */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background color */
+    border: none; /* Remove border */
+    padding: 5px; /* Padding for buttons */
+    font-size: 24px; /* Font size of the buttons */
+}
+
+.prev-button {
+    left: 5px; /* Align prev button to the left */
+}
+
+.next-button {
+    right: 5px; /* Align next button to the right */
 }
