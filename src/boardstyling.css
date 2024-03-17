@@ -125,13 +125,47 @@ ul {
     border-radius: 10px;
 }
 
+.tag {
+    background-color: #291c59;
+    font-size: 20px;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 5px; /* Spacing between tags */
+    margin-top: 10px; /* Spacing between title and tags */
+    margin-bottom: 10px;
+}
+
+.like-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    top: -40px;
+    right: 100px;
+}
+
+.like-button img {
+    height: 100px;
+    width: auto;
+    transform: rotate(-90deg);
+    float: right;
+}
+
+/* Styles for liked state */
+.like-button.liked img {
+    filter: brightness(0) invert(1);
+}
+
+
 .movie-details .text-details {
     align-self: flex-start; /* Align text to the start of the container (top) */
     flex: 1; /* Allow text details to fill remaining space */
     display: flex; /* Use flexbox for layout */
     flex-direction: column; /* Stack items vertically */
     margin-left: 10px;
-    padding-top: 15px; /* Padding from the top */
+    padding-top: 20px; /* Padding from the top */
+    padding-bottom: 20px;
     padding-right: 10px;
 }
 

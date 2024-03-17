@@ -67,12 +67,15 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Website Loaded!');
 
     // Function to update top movie display and information
-    function updateTopMovie(movieSrc, title, director, actors, description) {
-        document.getElementById('top-movie').src = movieSrc;
+    function updateTopMovie(movieSrc, title, director, actors, description, genre, year, runTime) {
+        document.getElementById('top-movie').src = 'assets/' + movieSrc;
         document.getElementById('top-movie-title').textContent = title;
         document.getElementById('top-movie-director').textContent = director;
         document.getElementById('top-movie-actors').textContent = actors;
         document.getElementById('top-movie-description').textContent = description;
+        document.getElementById('top-movie-genre').textContent = genre.join(', ');
+        document.getElementById('top-movie-year').textContent = year;
+        document.getElementById('top-movie-runTime').textContent = runTime;
     }
 
     // Get references to movie images
@@ -90,75 +93,122 @@ document.addEventListener('DOMContentLoaded', function() {
         updateTopMovie(
             'birdCage.jpg',
             'The Birdcage',
-            'Movie 1 Director',
-            'Robin Williams, Nathan Lane, Actor 3',
-            'Description of The Birdcage movie'
+            'Mike Nichols',
+            'Robin Williams, Nathan Lane, Gene Hackman, Hank Azaria',
+            'A gay cabaret owner and his drag queen companion agree to put up a false straight front so that their son can introduce them to his fiancée\'s right-wing moralistic parents.',
+            ['Comedy', 'Drama'],
+            '1996',
+            '117 m'
         );
     });
     movie2.addEventListener('click', function(click) {
         updateTopMovie(
             'dumbAndDumber.jpg',
             'Dumb and Dumber',
-            'Movie 2 Director',
-            'Actor 1, Actor 2, Actor 3',
-            'Description of Dumb and Dumber movie'
+            'Peter Farrelly',
+            'Jim Carrey, Jeff Daniels',
+            'The cross-country adventures of two good-hearted but incredibly stupid friends.',
+            ['Comedy'],
+            '1994',
+            '107 m'
         );
     });
     movie3.addEventListener('click', function(click) {
         updateTopMovie(
             'falilv.jpg',
             'Fear and Loathing in Las Vegas',
-            'Movie 3 Director',
-            'Actor 1, Actor 2, Actor 3',
-            'Description of Fear and Loathing in Las Vegas movie'
+            'Terry Gilliam',
+            'Johnny Depp, Benicio Del Toro, Tobey Maguire',
+            'An oddball journalist and his psychopathic lawyer travel to Las Vegas for a series of psychedelic escapades.',
+            ['Comedy', 'Drama'],
+            '1998',
+            '118 m'
         );
     });
     movie4.addEventListener('click', function(click) {
         updateTopMovie(
             'potc.jpg',
             'The Pirates of the Caribbean',
-            'Movie 4 Director',
-            'Actor 1, Actor 2, Actor 3',
-            'Description of The Pirates of the Caribbean movie'
+            'Gore Verbinski',
+            'Johnny Depp, Geoffrey Rush, Orlando Bloom',
+            'Blacksmith Will Turner teams up with eccentric pirate "Captain" Jack Sparrow to save his love, the governor\'s daughter, from Jack\'s former pirate allies, who are now undead.',
+            ['Action', 'Adventure', 'Fantasy'],
+            '2003',
+            '143 m'
         );
     });
     movie5.addEventListener('click', function(click) {
         updateTopMovie(
             'joker.jpg',
             'The Joker',
-            'Movie 5 Director',
-            'Actor 1, Actor 2, Actor 3',
-            'Description of The Joker movie'
+            'Todd Phillips',
+            'Joaquin Phoenix, Robert De Niro, Zazie Beetz',
+            'In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.',
+            ['Crime', 'Drama', 'Thriller'],
+            '2019',
+            '122 m'
         );
     });
     movie6.addEventListener('click', function(click) {
         updateTopMovie(
             'theHangover.jpg',
             'The Hangover',
-            'Movie 6 Director',
-            'Actor 1, Actor 2, Actor 3',
-            'Description of The Hangover movie'
+            'Todd Phillips',
+            'Ed Helms, Bradley Cooper, Zach Galifianakis',
+            'Three buddies wake up from a bachelor party in Las Vegas, with no memory of the previous night and the bachelor missing. They make their way around the city in order to find their friend before his wedding.',
+            ['Comedy'],
+            '2009',
+            '100 m'
+
         );
     });
     movie7.addEventListener('click', function(click) {
         updateTopMovie(
             'truemanShow.jpg',
             'The Trueman Show',
-            'Movie 7 Director',
-            'Actor 1, Actor 2, Actor 3',
-            'Description of The Trueman Show movie'
+            'Peter Weir',
+            'Jim Carrey, Ed Harris, Laura Linney',
+            'An insurance salesman discovers his whole life is actually a reality TV show.',
+            ['Comedy', 'Drama', 'Sci-Fi'],
+            '1998',
+            '103 m'
         );
     });
     movie8.addEventListener('click', function(click) {
         updateTopMovie(
             'johnnyEnglish.jpg',
             'Johnny English',
-            'Movie 8 Director',
-            'Actor 1, Actor 2, Actor 3',
-            'Description of Johnny English movie'
+            'Peter Howitt',
+            'Rowan Atkinson, John Malkovich, Natalie Imbruglia',
+            'After a sudden attack on MI5, Johnny English, Britain\'s most confident yet unintelligent spy, becomes Britain\'s only spy.',
+            ['Action', 'Adventure', 'Comedy'],
+            '2003',
+            '87 minutes'
         );
     });
 
     // Trigger the event listener for the first movie upon page load
     movie1.click();
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Functionality for like button
+    const likeButton = document.getElementById('top-movie-like-button');
+    likeButton.addEventListener('click', function() {
+        // Toggle like button state
+        toggleLikeButton(likeButton);
+
+        // Add/remove movie from favorites
+        const movieTitle = document.getElementById('top-movie-title').textContent;
+        toggleFavorite(movieTitle);
+    });
+});
+
+function toggleLikeButton(button) {
+    button.classList.toggle('liked');
+}
+
+function toggleFavorite(movieTitle) {
+    // Implement logic to add/remove movie from user's favorites
+}
+
