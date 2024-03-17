@@ -2,11 +2,25 @@ document.addEventListener('DOMContentLoaded', function(){
     console.log('Website Loaded!');
 });
 
-document.getElementById('searchForm').addEventListener('submit', function(event){
-    event.preventDefault();
-    var searchTerm = document.getElementById('searchInput').ariaValueMax;
-    console.log('searching for:', searchTerm);
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Website Loaded!');
+
+    // Check if the element with ID 'searchForm' exists before adding event listener
+    var searchForm = document.getElementById('searchForm');
+    if (searchForm) {
+        // Add event listener to the search form
+        searchForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Correct the selector to get the value of the search input
+            var searchTerm = document.getElementById('searchInput').value;
+            console.log('Searching for:', searchTerm);
+            // Add your search functionality here
+        });
+    } else {
+        console.error('Element with ID "searchForm" not found.');
+    }
 });
+
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Website Loaded!');
@@ -36,13 +50,18 @@ document.addEventListener('DOMContentLoaded', function() {
         movieImages.style.transform = `translateX(${offset}px)`;
     }
 
-    // Functionality for search form
-    document.getElementById('searchForm').addEventListener('submit', function(event){
-        event.preventDefault();
-        var searchTerm = document.getElementById('searchInput').value;
-        console.log('Searching for:', searchTerm);
-        // Add your search functionality here
-    });
+    // Functionality for search form (if it exists)
+    const searchForm = document.getElementById('searchForm');
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(event){
+            event.preventDefault();
+            var searchTerm = document.getElementById('searchInput').value;
+            console.log('Searching for:', searchTerm);
+            // Add your search functionality here
+        });
+    } else {
+        console.log("Search form not found.");
+    }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -83,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'Dumb and Dumber',
             'Movie 2 Director',
             'Actor 1, Actor 2, Actor 3',
-            'Description of The Dumb and Dumber movie'
+            'Description of Dumb and Dumber movie'
         );
     });
     movie3.addEventListener('click', function(click) {

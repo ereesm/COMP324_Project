@@ -1,78 +1,82 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
+/* Header Styles */
 header {
-    background-color: rgba(163, 146, 235, 0.9); /* #a392eb; */
+    background-color: rgba(163, 146, 235, 0.9);
     color: white;
     padding: 10px;
     text-align: left;
 }
-.welcome-text{
+
+/* Navigation Styles */
+.welcome-text {
     display: none;
-    text-align:left;
+    text-align: left;
 }
 
-.search-bar{
+.search-bar {
     text-align: right;
 }
 
-
-.navbar{
-    width: calc(100%  - 20px);
+.navbar {
+    width: calc(100% - 20px);
     margin: 0 auto;
     background-color: rgba(163, 146, 235, 0.8);
-    overflow:hidden;
+    overflow: hidden;
     padding: 10px;
 }
 
-.navbar a{
+.navbar a {
     float: left;
-    color: white; /* Text color set to white */
+    color: white;
     text-align: center;
-    padding: 14px 16px; /* Padding adjusted */
+    padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px; /* Font size adjusted */
+    font-size: 17px;
 }
 
-.navbar a.active{
+.navbar a.active {
     background-color: #04AA6D;
     color: white;
 }
 
-.navbar a:hover{
+.navbar a:hover {
     background-color: #ddd;
     color: black;
 }
 
-.navbar input[type=text]{
-    float:right;
+.navbar input[type=text] {
+    float: right;
     padding: 6px;
-    border:none;
+    border: none;
     margin-top: 8px;
-    margin-right:16px;
+    margin-right: 16px;
     font-size: 17px;
 }
 
+/* Body Styles */
 body {
     font-family: 'Space Grotesk', sans-serif;
     background-color: #291c59;
     color: white;
 }
 
-ul{
+/* General Styles */
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-
-#searchInput{
+/* Search Form Styles */
+#searchInput {
     padding: 8px;
     margin: 0 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
-#searchForm button{
+#searchForm button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -81,103 +85,127 @@ ul{
     cursor: pointer;
 }
 
+/* Movie Section Styles */
 .movie-section {
-    width: calc(100% - 20px); /* Width of the nav bar minus its left and right padding */
-    margin: 20px auto; /* Center the movie section horizontally */
-    background-color: rgba(163, 146, 235, 0.8); /* Same color as the nav bar */
-    padding: 10px; /* Half the size of the original padding */
-    box-sizing: border-box; /* Include padding in width calculation */
-    margin-top: 20px; /* Add margin between the nav bar and the movie section */
+    width: calc(100% - 20px);
+    margin: 20px auto;
+    background-color: rgba(163, 146, 235, 0.8);
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
 }
 
 .movie-details {
     display: flex; /* Use flexbox for layout */
+    align-items: center; /* Align items vertically */
+    width: 100%; /* Occupy full width */
+    padding: 5px; /* Padding on top and bottom */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .movie-details img {
-    max-width: calc(50% - 10px); /* Image width is half the width of the movie section minus padding */
-    margin-right: 10px; /* Spacing between image and text */
+    width: calc(50% - 7.5px); /* Set width to half of the box minus 7.5px */
+    height: 450px; /* Fixed height */
+    padding: 5px 0; /* Padding on top and bottom */
+    margin-right: 5px; /* Margin between image and text */
+    border-radius: 10px;
 }
 
-.text-details {
+.movie-details .text-details {
+    align-self: flex-start; /* Align text to the start of the container (top) */
     flex: 1; /* Allow text details to fill remaining space */
     display: flex; /* Use flexbox for layout */
     flex-direction: column; /* Stack items vertically */
     margin-left: 10px;
-    margin-top: -20px;
+    padding-top: 15px; /* Padding from the top */
     padding-right: 10px;
 }
 
-.text-details h2 {
-    font-size: 60px;
-    font-weight:  bold;
-    margin-bottom: 10px;
+.movie-details .text-details h2 {
+    font-size: 60px; /* Adjust font size */
+    margin-bottom: 10px; /* Add margin at the bottom of the title */
+    padding-top: 5px;
 }
 
-.text-details p {
-    text-align: justify;
+.movie-details .text-details span {
+    font-size: 20px;
+    align-self: flex-start; /* Align directors and actors at the top */
 }
 
+.movie-details .text-details p {
+    font-size: 20px;
+    text-align: justify; /* Justify text */
+    margin: 0; /* Remove default margin */
+    margin-top: 8px; /* Add margin at the top */
+}
+
+.text-details #top-movie-description {
+    font-size: 20px; /* Description font size */
+}
+
+/* Navigation Box Styles */
 .navigation-header {
     color: #5943a8;
-    padding: 10px; /* Padding of the navigation header */
-
+    padding: 10px;
 }
 
 .navigation-header h2 {
-    margin: 0; /* Remove default margin */
-}
-
-.movie-images {
-    display: flex; /* Use flexbox for layout */
-    padding: 5px; /* Padding between movie images */
-    position: relative; /* Ensure movie images are positioned relative to this container */
-    white-space: nowrap; /* Prevent movie images from wrapping */
-    overflow-x: hidden;
-}
-
-.movie-images img {
-    width: 225px; /* Automatically adjust image width */
-    height: 150px; /* Fixed height for movie images */
-    margin-right: 10px; /* Margin between movie images */
-    object-fit: cover;
-    transition: left 1s ease;
-    transform-origin: center center;
-}
-
-.movie-images img:hover {
-    transform: scale(1.5); /* Scale the image slightly when hovered over */
-    z-index: 1;
+    margin: 0;
 }
 
 .navigation-box {
-    width: calc(100% - 20px); /* Width of the page minus padding */
-    margin: 0 auto; /* Center the navigation box horizontally */
-    background-color: rgba(163, 146, 235, 0.9); /* Color of the navigation box */
-    padding: 5px; /* Padding within the navigation box */
-    box-sizing: border-box; /* Include padding in width calculation */
-    overflow-x: hidden; /* Hide horizontal overflow */
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    background-color: rgba(163, 146, 235, 0.9);
+    padding: 5px;
+    box-sizing: border-box;
+    overflow-x: hidden;
     position: relative;
 }
 
 .navigation-box h2 {
-    margin-top: 0; /* Font size of the navigation title */
+    margin-top: 0;
 }
 
 .prev-button, .next-button {
-    position: absolute; /* Position the buttons */
-    top: 50%; /* Align buttons vertically */
-    transform: translateY(-50%); /* Center the buttons vertically */
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background color */
-    border: none; /* Remove border */
-    padding: 5px; /* Padding for buttons */
-    font-size: 24px; /* Font size of the buttons */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 5px;
+    font-size: 24px;
 }
 
 .prev-button {
-    left: 5px; /* Align prev button to the left */
+    left: 5px;
 }
 
 .next-button {
-    right: 5px; /* Align next button to the right */
+    right: 5px;
+}
+
+/* Movie Images Styles */
+.movie-images {
+    display: flex;
+    padding: 5px;
+    position: relative;
+    white-space: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.movie-images img {
+    width: 225px;
+    height: 150px;
+    margin-right: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Changed transition to transform */
+    scroll-snap-align: start; /* Ensures smooth snapping of images */
+    border-radius: 5px;
+}
+
+.movie-images img:hover {
+    transform: scale(1.1); /* Slightly increase size on hover */
 }
