@@ -47,10 +47,10 @@ header {
 
 .navbar input[type=text] {
     float: right;
+    margin-right: 5px;
     padding: 6px;
     border: none;
     margin-top: 8px;
-    margin-right: 16px;
     font-size: 17px;
 }
 
@@ -66,6 +66,20 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+#profile-link, #advanced-search-link {
+    float: left;
+    margin-right: 5px;
+}
+
+#profile-link img, #advanced-search-link img {
+    height: 1.5em;
+    width: auto;
+}
+
+#profile-link img:hover {
+    filter: brightness(0) invert(1);
 }
 
 /* Search Form Styles */

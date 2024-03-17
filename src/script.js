@@ -50,14 +50,13 @@ document.addEventListener('DOMContentLoaded', function() {
         movieImages.style.transform = `translateX(${offset}px)`;
     }
 
-    // Functionality for search form (if it exists)
+    // Functionality for search form
     const searchForm = document.getElementById('searchForm');
     if (searchForm) {
         searchForm.addEventListener('submit', function(event){
             event.preventDefault();
             var searchTerm = document.getElementById('searchInput').value;
             console.log('Searching for:', searchTerm);
-            // Add your search functionality here
         });
     } else {
         console.log("Search form not found.");
