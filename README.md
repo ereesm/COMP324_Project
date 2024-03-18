@@ -13,3 +13,11 @@ as of now this is what I believe we need to do
 - add functionality for thumbnails on the home page.
 - I figure we really need some backend/data management support now, in order to feature content and host user information. (!!!)
 
+
+
+Emile - March 17th. MongoDB has been implemented into the codebase. Two playgrounds for mongodb are going to be appended to our project. playground-1 is irrelevant, and can be ignored for now, but it can be used for testing if you want. StudentBoard is the one I hope we can really focus on in terms of breaking and testing. Once you have installed mongodb on your computer, add the extension for mongodb on VSCODE. Then, all you have to do is connect to the database using this string:
+
+mongodb://localhost:27017
+
+I'm not sure this will really work since its local, but I hope it will! That said, I assume that because its local, we can change all we want on our own, and upon updating the playground, the database will be properly updated. We just have to make sure we are up to date and communicating when updating the playground.
+
