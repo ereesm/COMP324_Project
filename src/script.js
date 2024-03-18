@@ -23,45 +23,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Website Loaded!');
-
-    // Functionality for movie navigation buttons
+    // Functionality for navigation buttons
     const prevButton = document.querySelector('.prev-button');
     const nextButton = document.querySelector('.next-button');
     const movieImages = document.querySelector('.movie-images');
     const MOVIE_WIDTH = 225; // Width of each movie image including margin-right
 
-    console.log(prevButton, nextButton, movieImages); // Check if elements are correctly selected
-
     // Function to move movies to the left
     prevButton.addEventListener('click', function() {
-        console.log('Previous button clicked');
         moveMovies(MOVIE_WIDTH); // Move movies to the left by the width of one movie
     });
 
     // Function to move movies to the right
     nextButton.addEventListener('click', function() {
-        console.log('Next button clicked');
         moveMovies(-MOVIE_WIDTH); // Move movies to the right by the width of one movie
     });
 
     // Function to move movies
     function moveMovies(offset) {
-        movieImages.style.transform = `translateX(${offset}px)`;
-    }
-
-    // Functionality for search form
-    const searchForm = document.getElementById('searchForm');
-    if (searchForm) {
-        searchForm.addEventListener('submit', function(event){
-            event.preventDefault();
-            var searchTerm = document.getElementById('searchInput').value;
-            console.log('Searching for:', searchTerm);
+        // Get current position
+        let currentPosition = movieImages.scrollLeft;
+        // Calculate new position
+        let newPosition = currentPosition + offset;
+        // Move to the new position with smooth behavior
+        movieImages.scrollTo({
+            left: newPosition,
+            behavior: 'smooth'
         });
-    } else {
-        console.log("Search form not found.");
     }
 });
+
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Website Loaded!');

@@ -115,6 +115,19 @@ ul {
     width: 100%; /* Occupy full width */
     padding: 5px; /* Padding on top and bottom */
     box-sizing: border-box; /* Include padding in width calculation */
+    margin-top: 20px;
+    height: 500px;
+}
+
+.movie-details::before {
+    content: '';
+    position: absolute;
+    top: 150px;
+    left: 55px; /* Padding from the left */
+    right: 55px; /* Padding from the right */
+    height: 5px; /* Height of the line */
+    background-color: white;
+    border-radius: 2.5px;
 }
 
 .movie-details img {
@@ -141,8 +154,8 @@ ul {
     border: none;
     cursor: pointer;
     position: relative;
-    top: -40px;
-    right: 100px;
+    top: -95px;
+    right: 75px;
 }
 
 .like-button img {
@@ -157,7 +170,6 @@ ul {
     filter: brightness(0) invert(1);
 }
 
-
 .movie-details .text-details {
     align-self: flex-start; /* Align text to the start of the container (top) */
     flex: 1; /* Allow text details to fill remaining space */
@@ -167,10 +179,11 @@ ul {
     padding-top: 20px; /* Padding from the top */
     padding-bottom: 20px;
     padding-right: 10px;
+    height: 90%;
 }
 
 .movie-details .text-details h2 {
-    font-size: 60px; /* Adjust font size */
+    font-size: 40px; /* Adjust font size */
     margin-bottom: 10px; /* Add margin at the bottom of the title */
     padding-top: 5px;
 }
@@ -257,23 +270,3 @@ ul {
 .movie-images img:hover {
     transform: scale(1.1); /* Slightly increase size on hover */
 }
-
-/*about us page*/
-.about-title {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.text-box {
-    border: 5px solid rgba(163, 146, 235, 0.8); /* Light purple color */
-    border-radius: 10px;
-    padding: 10px;
-    width: 60%; /* Set width to 60% of the page */
-    margin: 0 auto; /* Center the box horizontally */
-}
-
-.text-box p {
-    text-align: justify;
-}
-/* */
