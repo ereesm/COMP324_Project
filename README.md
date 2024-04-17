@@ -21,3 +21,23 @@ mongodb://localhost:27017
 
 I'm not sure this will really work since its local, but I hope it will! That said, I assume that because its local, we can change all we want on our own, and upon updating the playground, the database will be properly updated. We just have to make sure we are up to date and communicating when updating the playground.
 
+
+Einstein - I placed MongoDb in the cloud. How to set up on your end.
+
+Go to the terminal - npm install
+
+Download Mongodb in vs code extensions
+Go to command pallete in the view page and find " mongoDB: connect "
+Connect with a connection string
+
+Here are the passwords: 
+Emile: mongodb+srv://emile:HaYrQhDETHcl2ak8@cluster0.rddjoff.mongodb.net/
+Bugz: mongodb+srv://bugz:ULFiSmABw9BNYJql@cluster0.rddjoff.mongodb.net/
+
+Replace the playground-1.mongodb.js
+
+Go to terminal - npm start
+
+Everything should work after this. 
+
+
