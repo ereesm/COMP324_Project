@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,9 +14,8 @@
     <nav>
         <!---Each page is blank, and the names are subject to change to fit the figma model.-->
         <ul class="navbar">
-            <li><a href='./index.html'>HOME</a></li>
+            <li><a href='./home.html'>HOME</a></li>
             <li><a href='./aboutUs.html'>WHO ARE WE?</a></li>
-            <li><a href='./myFavs.html'>MY FAVORITES</a></li>
             <li><a href='./board-profile.html' id="profile-link"><img src="assets/smiley-face.png" alt="Smiley Face"></a></li>
             <li><a href='./board-advancedsearch.html' id="advanced-search-link"><img src="assets/search.png" alt="Search"></a></li>
             <input type="text" placeholder="Search..">
@@ -27,18 +26,25 @@
 <!-- Movie Section -->
 <div class="movie-section">
     <div class="movie-details">
-        <img src="assets/birdCage.jpg" alt="Top Movie" id="top-movie">
+        <div class="movie-player">
+            <!-- Video player will be displayed here -->
+        </div>
+
         <div class="text-details">
-            <h2 id="top-movie-title">The Birdcage</h2>
-            <p>
-                <span class="tag" id="top-movie-genre">Comedy</span>
-                <span class="tag" id="top-movie-year">1996</span>
-                <span class="tag" id="top-movie-runTime">108</span>
+            <div class = "movie-title">
+                <!-- Movie title will be displayed here -->
+            </div>
+            <p class = "movie-info">
+                <!-- Movie info will be displayed here -->
             </p>
+            
             <button class="like-button" id="top-movie-like-button"><img src="assets/smiley-face.png" alt="Like"></button>
-            <p><strong>Director:</strong> <span id="top-movie-director">Movie 1 Director</span></p>
-            <p><strong>Actors:</strong> <span id="top-movie-actors">Robin Williams, Nathan Lane, Actor 3</span></p>
-            <p><strong>Description:</strong> <span id="top-movie-description">Description of The Birdcage movie</span></p>
+            <h1>Description:</h1>
+            <div class="movie-description">
+                
+                <!-- Movie details will be displayed here -->
+            </div>
+            
         </div>
     </div>
 </div>
@@ -50,14 +56,7 @@
 <div class="navigation-box">
     <button class="prev-button">&#8249;</button>
     <div class="movie-images">
-        <img src="assets/birdCage.jpg" alt="Movie 1" id="movie1" data-title="The Birdcage" data-director="Movie 1 Director" data-actors="Robin Williams, Nathan Lane, Actor 3" data-description="Description of The Birdcage movie">
-        <img src="assets/dumbAndDumber.jpg" alt="Movie 2" id="movie2" data-title="Dumb and Dumber" data-director="Movie 2 Director" data-actors="Actor 1, Actor 2, Actor 3" data-description="Description of Dumb and Dumber movie">
-        <img src="assets/falilv.jpg" alt="Movie 3" id="movie3" data-title="Fear and Loathing in Las Vegas" data-director="Movie 3 Director" data-actors="Actor 1, Actor 2, Actor 3" data-description="Description of Fear and Loathing in Las Vegas movie">
-        <img src="assets/potc.jpg" alt="Movie 4" id="movie4" data-title="The Pirates of the Caribbean" data-director="Movie 4 Director" data-actors="Actor 1, Actor 2, Actor 3" data-description="Description of The Pirates of the Caribbean movie">
-        <img src="assets/joker.jpg" alt="Movie 5" id="movie5" data-title="The Joker" data-director="Movie 5 Director" data-actors="Actor 1, Actor 2, Actor 3" data-description="Description of The Joker movie">
-        <img src="assets/theHangover.jpg" alt="Movie 6" id="movie6" data-title="The Hangover" data-director="Movie 6 Director" data-actors="Actor 1, Actor 2, Actor 3" data-description="Description of The Hangover movie">
-        <img src="assets/truemanShow.jpg" alt="Movie 7" id="movie7" data-title="The Trueman Show" data-director="Movie 7 Director" data-actors="Actor 1, Actor 2, Actor 3" data-description="Description of The Trueman Show movie">
-        <img src="assets/johnnyEnglish.jpg" alt="Movie 8" id="movie8" data-title="Johnny English" data-director="Movie 8 Director" data-actors="Actor 1, Actor 2, Actor 3" data-description="Description of Johnny English movie">
+
     </div>
     <button class="next-button">&#8250;</button>
 </div>

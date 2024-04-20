@@ -270,3 +270,11 @@ ul {
 .movie-images img:hover {
     transform: scale(1.1); /* Slightly increase size on hover */
 }
+
+#movie-player {
+    width: 800px; /* Set width to half of the box minus 7.5px */
+    height: 450px; /* Fixed height */
+    padding: 5px 0; /* Padding on top and bottom */
+    margin-right: 5px; /* Margin between image and text */
+    border-radius: 10px;
+}

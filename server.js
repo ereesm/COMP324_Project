@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 // Connect to MongoDB Atlas
 mongoose.connect('mongodb+srv://emile:HaYrQhDETHcl2ak8@cluster0.rddjoff.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true });
 
+
+
 // Define a model for the 'users' collection
 const User = mongoose.model('User', new mongoose.Schema({
     name: String,
@@ -58,8 +60,40 @@ app.post('/signup', async (req, res) => {
     }
 });
 
+// Retrieve the existing collection
+const Movie = mongoose.connection.useDb('studentboard').model('Movie', new mongoose.Schema({}), 'movies');
+
+
+// Endpoint to fetch all movie data
+app.get('/movies', async (req, res) => {
+    try {
+        // Retrieve all movies from the 'movies' collection
+        const movies = await Movie.find({}, {
+            _id: 0,
+            description: 1,
+            duration: 1,
+            genre: 1,
+            title: 1,
+            released: 1,
+            film_link: 1,
+            poster: 1
+        });
+
+        // Send the movies data as JSON response
+        res.json(movies);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+
+
+

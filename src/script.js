@@ -2,24 +2,6 @@ document.addEventListener('DOMContentLoaded', function(){
     console.log('Website Loaded!');
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Website Loaded!');
-
-    // Check if the element with ID 'searchForm' exists before adding event listener
-    var searchForm = document.getElementById('searchForm');
-    if (searchForm) {
-        // Add event listener to the search form
-        searchForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            // Correct the selector to get the value of the search input
-            var searchTerm = document.getElementById('searchInput').value;
-            console.log('Searching for:', searchTerm);
-            // Add your search functionality here
-        });
-    } else {
-        console.error('Element with ID "searchForm" not found.');
-    }
-});
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -54,133 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Website Loaded!');
-
-    // Function to update top movie display and information
-    function updateTopMovie(movieSrc, title, director, actors, description, genre, year, runTime) {
-        document.getElementById('top-movie').src = 'assets/' + movieSrc;
-        document.getElementById('top-movie-title').textContent = title;
-        document.getElementById('top-movie-director').textContent = director;
-        document.getElementById('top-movie-actors').textContent = actors;
-        document.getElementById('top-movie-description').textContent = description;
-        document.getElementById('top-movie-genre').textContent = genre.join(', ');
-        document.getElementById('top-movie-year').textContent = year;
-        document.getElementById('top-movie-runTime').textContent = runTime;
-    }
-
-    // Get references to movie images
-    const movie1 = document.getElementById('movie1');
-    const movie2 = document.getElementById('movie2');
-    const movie3 = document.getElementById('movie3');
-    const movie4 = document.getElementById('movie4');
-    const movie5 = document.getElementById('movie5');
-    const movie6 = document.getElementById('movie6');
-    const movie7 = document.getElementById('movie7');
-    const movie8 = document.getElementById('movie8');
-
-    // Add event listeners to movie images
-    movie1.addEventListener('click', function(click) {
-        updateTopMovie(
-            'birdCage.jpg',
-            'The Birdcage',
-            'Mike Nichols',
-            'Robin Williams, Nathan Lane, Gene Hackman, Hank Azaria',
-            'A gay cabaret owner and his drag queen companion agree to put up a false straight front so that their son can introduce them to his fiancée\'s right-wing moralistic parents.',
-            ['Comedy', 'Drama'],
-            '1996',
-            '117 m'
-        );
-    });
-    movie2.addEventListener('click', function(click) {
-        updateTopMovie(
-            'dumbAndDumber.jpg',
-            'Dumb and Dumber',
-            'Peter Farrelly',
-            'Jim Carrey, Jeff Daniels',
-            'The cross-country adventures of two good-hearted but incredibly stupid friends.',
-            ['Comedy'],
-            '1994',
-            '107 m'
-        );
-    });
-    movie3.addEventListener('click', function(click) {
-        updateTopMovie(
-            'falilv.jpg',
-            'Fear and Loathing in Las Vegas',
-            'Terry Gilliam',
-            'Johnny Depp, Benicio Del Toro, Tobey Maguire',
-            'An oddball journalist and his psychopathic lawyer travel to Las Vegas for a series of psychedelic escapades.',
-            ['Comedy', 'Drama'],
-            '1998',
-            '118 m'
-        );
-    });
-    movie4.addEventListener('click', function(click) {
-        updateTopMovie(
-            'potc.jpg',
-            'The Pirates of the Caribbean',
-            'Gore Verbinski',
-            'Johnny Depp, Geoffrey Rush, Orlando Bloom',
-            'Blacksmith Will Turner teams up with eccentric pirate "Captain" Jack Sparrow to save his love, the governor\'s daughter, from Jack\'s former pirate allies, who are now undead.',
-            ['Action', 'Adventure', 'Fantasy'],
-            '2003',
-            '143 m'
-        );
-    });
-    movie5.addEventListener('click', function(click) {
-        updateTopMovie(
-            'joker.jpg',
-            'The Joker',
-            'Todd Phillips',
-            'Joaquin Phoenix, Robert De Niro, Zazie Beetz',
-            'In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.',
-            ['Crime', 'Drama', 'Thriller'],
-            '2019',
-            '122 m'
-        );
-    });
-    movie6.addEventListener('click', function(click) {
-        updateTopMovie(
-            'theHangover.jpg',
-            'The Hangover',
-            'Todd Phillips',
-            'Ed Helms, Bradley Cooper, Zach Galifianakis',
-            'Three buddies wake up from a bachelor party in Las Vegas, with no memory of the previous night and the bachelor missing. They make their way around the city in order to find their friend before his wedding.',
-            ['Comedy'],
-            '2009',
-            '100 m'
-
-        );
-    });
-    movie7.addEventListener('click', function(click) {
-        updateTopMovie(
-            'truemanShow.jpg',
-            'The Trueman Show',
-            'Peter Weir',
-            'Jim Carrey, Ed Harris, Laura Linney',
-            'An insurance salesman discovers his whole life is actually a reality TV show.',
-            ['Comedy', 'Drama', 'Sci-Fi'],
-            '1998',
-            '103 m'
-        );
-    });
-    movie8.addEventListener('click', function(click) {
-        updateTopMovie(
-            'johnnyEnglish.jpg',
-            'Johnny English',
-            'Peter Howitt',
-            'Rowan Atkinson, John Malkovich, Natalie Imbruglia',
-            'After a sudden attack on MI5, Johnny English, Britain\'s most confident yet unintelligent spy, becomes Britain\'s only spy.',
-            ['Action', 'Adventure', 'Comedy'],
-            '2003',
-            '87 minutes'
-        );
-    });
-
-    // Trigger the event listener for the first movie upon page load
-    movie1.click();
-});
 
 document.addEventListener('DOMContentLoaded', function() {
     // Functionality for like button
@@ -202,4 +57,136 @@ function toggleLikeButton(button) {
 function toggleFavorite(movieTitle) {
     // Implement logic to add/remove movie from user's favorites
 }
+
+
+
+// Function to fetch posters and descriptions
+function fetchPostersAndDescriptions() {
+    fetch('/movies')
+        .then(response => response.json())
+        .then(data => {
+            const movieImagesDiv = document.querySelector('.movie-images');
+            
+            // Loop through each movie data
+            data.forEach((movie, index) => {
+                // Create img element for each movie poster
+                const img = document.createElement('img');
+                img.src = movie.poster;
+                img.alt = 'Movie Poster';
+                
+                // Add click event listener to each poster
+                img.addEventListener('click', () => {
+                    displayAttributes(movie);
+                });
+                
+                // Append the poster img to movieImagesDiv
+                movieImagesDiv.appendChild(img);
+                
+                // Automatically display attributes of the first movie
+                if (index === 0) {
+                    displayAttributes(movie);
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching posters:', error));
+}
+
+
+function displayAttributes(movie) {
+    const attributes = { ...movie };
+    const moviePlayerDiv = document.querySelector('.movie-player');
+    const movieInfoDiv = document.querySelector('.movie-info');
+    const movieDescriptionDiv = document.querySelector('.movie-description');
+    const movieTitleDiv = document.querySelector('.movie-title');
+
+    
+    moviePlayerDiv.innerHTML = ''; // Clear previous content
+    movieInfoDiv.innerHTML = ''; // Clear previous content
+    movieDescriptionDiv.innerHTML = ''; // Clear previous content
+    movieTitleDiv.innerHTML = ''; // Clear previous content
+
+    // this for loop creates the tags for each movie attributes
+    for (let key in attributes) {
+        let tag;
+        switch (key) {
+            case 'title':
+                tag = 'h2';
+                break;  
+
+            case 'description':
+                tag = 'p';
+                break;
+
+            case 'genre':
+                tag = 'span';
+                break;
+
+            case 'released':
+                tag = 'span';
+                break;
+
+            case 'duration':
+                tag = 'span';
+                break;
+
+            case 'film_link':
+                const videoTag = document.createElement('iframe');
+                videoTag.src = attributes[key];
+                videoTag.allowFullscreen = true; // Allow fullscreen playback
+                videoTag.title = 'YouTube video player';
+                videoTag.frameborder = 0; // Remove border
+                videoTag.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                videoTag.referrerpolicy = 'strict-origin-when-cross-origin';
+                videoTag.allowFullscreen = true;
+                videoTag.id = "movie-player";
+                moviePlayerDiv.appendChild(videoTag);
+                continue; // Skip appending to attribute list
+
+            default:
+                tag = 'p';
+                break;
+        }
+
+
+        const attributeItem = document.createElement(tag);
+        attributeItem.textContent = `${attributes[key]}`;
+        
+        // Append attribute id and class to the appropriate property
+        if (key === 'title') {
+            attributeItem.id = 'top-movie-title';
+            movieTitleDiv.appendChild(attributeItem);
+        }
+        
+        if (key === 'description') {
+            attributeItem.classList.add('description');
+            attributeItem.id = 'top-movie-description';
+            movieDescriptionDiv.appendChild(attributeItem);
+        }
+        
+        if (key === 'genre') {
+            attributeItem.classList.add('tag');
+            attributeItem.id = 'top-movie-genre';
+            movieInfoDiv.appendChild(attributeItem);
+        }
+        
+        if (key === 'released') {
+            attributeItem.classList.add('tag');
+            attributeItem.id = 'top-movie-released';
+            movieInfoDiv.appendChild(attributeItem);
+        }
+        
+        if (key === 'duration') {
+            attributeItem.classList.add('tag');
+            attributeItem.id = 'top-movie-duration';
+            movieInfoDiv.appendChild(attributeItem);
+        }
+    }
+}
+
+
+
+
+// Call the fetchPostersAndDescriptions function when the page loads
+document.addEventListener('DOMContentLoaded', fetchPostersAndDescriptions);
+
 
