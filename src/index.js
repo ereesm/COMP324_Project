@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Login Page
     if (loginForm) {
         loginForm.addEventListener('submit', async (event) => {
-            event.preventDefault(); // Prevent the default form submission behavior
+            event.preventDefault();
 
             const username = loginForm.username.value;
             const password = loginForm.password.value;
@@ -20,10 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    // Login successful, do something (e.g., redirect to another page)
                     window.location.href = '/home.html';
                 } else {
-                    // Login failed, display an error message
                     const errorMessage = await response.text();
                     alert(errorMessage);
                 }
@@ -37,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sign Up Page
     if (signUpLink) {
         signUpLink.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent the default link behavior
-            window.location.href = 'signup.html'; // Redirect to the signup page
+            event.preventDefault(); 
+            window.location.href = 'signup.html'; 
         });
     }
 
@@ -47,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (signUpForm) {
         signUpForm.addEventListener('submit', async (event) => {
-            event.preventDefault(); // Prevent the default form submission behavior
+            event.preventDefault(); 
 
             const name = signUpForm.name.value;
             const email = signUpForm.email.value;
@@ -64,10 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    // Signup successful, do something (e.g., redirect to another page)
                     window.location.href = '/login.html';
                 } else {
-                    // Signup failed, display an error message
                     const errorMessage = await response.text();
                     alert(errorMessage);
                 }
@@ -77,10 +73,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-
-
-
-
-
 });

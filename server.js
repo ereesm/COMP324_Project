@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 mongoose.connect('mongodb+srv://emile:HaYrQhDETHcl2ak8@cluster0.rddjoff.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
-
 // Define a model for the 'users' collection
 const User = mongoose.model('User', new mongoose.Schema({
     name: String,
@@ -15,14 +14,10 @@ const User = mongoose.model('User', new mongoose.Schema({
     password: String
 }, { collection: 'users' }));
 
-// Create an Express application
+//Setup web server by starting and configuring express app
 const app = express();
-
-// Configure body-parser middleware to parse JSON bodies
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// Serve static files from the 'src' directory
 app.use(express.static('src'));
 
 // Login endpoint
@@ -45,12 +40,10 @@ app.post('/login', async (req, res) => {
 app.post('/signup', async (req, res) => {
     const { name, email, username, password } = req.body;
     try {
-        // Check if the username already exists
         const existingUser = await User.findOne({ username });
         if (existingUser) {
             return res.status(400).send('Username already exists');
         }
-        // Create a new user
         const newUser = new User({ name, email, username, password });
         await newUser.save();
         res.redirect('/login.html');
