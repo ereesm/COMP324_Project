@@ -8,14 +8,10 @@
 </head>
 <body>
 <header>
-    <!-- <div class ="welcome text">
-        <h1>Welcome!</h1>
-    </div> -->
     <nav>
-        <!---Each page is blank, and the names are subject to change to fit the figma model.-->
         <ul class="navbar">
             <li><a href='./index.html'>HOME</a></li>
-            <li><a href='./login.html'>Login</a></li>
+            <li><a href='./login.html'>LOGIN</a></li>
             <li><a href='./aboutUs.html'>WHO ARE WE?</a></li>
             <li><a href='./board-profile.html' id="profile-link"><img src="assets/smiley-face.png" alt="Smiley Face"></a></li>
             <li><a href='./board-advancedsearch.html' id="advanced-search-link"><img src="assets/search.png" alt="Search"></a></li>
@@ -25,41 +21,42 @@
 </header>
 
 <!-- Movie Section -->
-<div class="movie-section">
-    <div class="movie-details">
-        <div class="movie-player">
+<main class="movie-container"> 
+    <section class="movie-details">
+        <figure class="movie-player">
             <!-- Video player will be displayed here -->
-        </div>
+        </figure>
 
-        <div class="text-details">
-            <div class = "movie-title">
-                <!-- Movie title will be displayed here -->
-            </div>
-            <p class = "movie-info">
+        <section class="text-details">
+            <header>
+                <h1 class="movie-title">
+                    <!-- Movie title will be displayed here -->
+                </h1>
+                <!--<button class="like-button" id="top-movie-like-button"><img src="assets/smiley-face.png" alt="Like"></button> -->
+            </header>
+            <p class="movie-info">
                 <!-- Movie info will be displayed here -->
-            </p>
-            <button class="like-button" id="top-movie-like-button"><img src="assets/smiley-face.png" alt="Like"></button>
-            <h1>Description:</h1>
-            <div class="movie-description">
-                
+            </p>  
+            <h2>Description:</h2>
+            <p class="movie-description">
                 <!-- Movie details will be displayed here -->
-            </div>
-            
-        </div>
-    </div>
-</div>
+            </p>
+        </section>
+    </section>
+</main>
 
-<div class="navigation-header">
+
+<header class="navigation-header">
     <h2>Our Collection:</h2>
-</div>
+</header>
 
-<div class="navigation-box">
-    <button class="prev-button">&#8249;</button>
-    <div class="movie-images">
+<section class="navigation-box">
+    <!-- <button class="prev-button">&#8249;</button> -->
+    <section class="movie-images">
 
-    </div>
-    <button class="next-button">&#8250;</button>
-</div>
+    </section>
+    <!-- <button class="next-button">&#8250;</button> -->
+</section>
 
 <script src="script.js"></script>
 </body>

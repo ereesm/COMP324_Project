@@ -1,43 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-/* Header Styles */
-header {
-    background-color: rgba(163, 146, 235, 0.9);
-    color: white;
-    padding: 10px;
-    text-align: left;
-}
-
-/* Navigation Styles */
-.welcome-text {
-    display: none;
-    text-align: left;
-}
-
-.search-bar {
-    text-align: right;
-}
-
+/* Navigation Bar Styles */
 .navbar {
-    width: calc(100% - 20px);
-    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; 
     background-color: rgba(163, 146, 235, 0.8);
-    overflow: hidden;
     padding: 10px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar a {
-    float: left;
     color: white;
-    text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
+    padding: 14px 10px;
     font-size: 17px;
 }
 
 .navbar a.active {
     background-color: #04AA6D;
-    color: white;
 }
 
 .navbar a:hover {
@@ -46,13 +33,13 @@ header {
 }
 
 .navbar input[type=text] {
-    float: right;
-    margin-right: 5px;
-    padding: 6px;
+    padding: 10 px;
     border: none;
     margin-top: 8px;
     font-size: 17px;
+    margin-left: auto;
 }
+
 
 /* Body Styles */
 body {
@@ -100,127 +87,106 @@ ul {
 }
 
 /* Movie Section Styles */
-.movie-section {
-    width: calc(100% - 20px);
-    margin: 20px auto;
-    background-color: rgba(163, 146, 235, 0.8);
-    padding: 10px;
+.movie-container {
+    background-color: rgba(163, 146, 235, 0.8); /* Lighter purple color */
+    margin: 40px auto;
+    padding-right: 10px;
     box-sizing: border-box;
-    margin-top: 20px;
+    border-radius: 5px; 
+    width: 97%;
+    height: auto;
 }
 
 .movie-details {
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Align items vertically */
-    width: 100%; /* Occupy full width */
-    padding: 5px; /* Padding on top and bottom */
-    box-sizing: border-box; /* Include padding in width calculation */
-    margin-top: 20px;
-    height: 500px;
+    display: flex; 
+    align-items: flex-start; 
+    justify-content: space-between; 
+    flex-wrap: wrap; 
+    padding: 20px 10px; 
+    box-sizing: border-box; 
 }
 
-.movie-details::before {
-    content: '';
-    position: absolute;
-    top: 150px;
-    left: 55px; /* Padding from the left */
-    right: 55px; /* Padding from the right */
-    height: 5px; /* Height of the line */
-    background-color: white;
-    border-radius: 2.5px;
+.movie-details .movie-player {
+    flex: 1; 
+    max-width: 100%;
 }
 
-.movie-details img {
-    width: calc(50% - 7.5px); /* Set width to half of the box minus 7.5px */
-    height: 450px; /* Fixed height */
-    padding: 5px 0; /* Padding on top and bottom */
-    margin-right: 5px; /* Margin between image and text */
-    border-radius: 10px;
+.text-details {
+    flex: 1;
+    padding-left: 10px; 
+    box-sizing: border-box; 
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.title-container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.movie-title {
+    font-size: 40px; 
+    margin: 0;
+}
+
+.movie-info, .movie-description {
+    font-size: 20px; 
+    text-align: justify; 
 }
 
 .tag {
     background-color: #291c59;
     font-size: 20px;
     color: white;
-    padding: 5px 10px;
-    border-radius: 5px; /* Rounded corners */
-    margin-right: 5px; /* Spacing between tags */
-    margin-top: 10px; /* Spacing between title and tags */
-    margin-bottom: 10px;
+    padding: 5px 10px; 
+    border-radius: 5px; 
+    margin-right: 10px; 
 }
 
+/* Not being included in final design, as functionality has not worked out
 .like-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    position: relative;
-    top: -95px;
-    right: 75px;
+    margin-left: 10px; /* Add margin between title and button 
+    align-self: flex-start; /* Align the button to the start (top) of its container 
 }
 
 .like-button img {
-    height: 100px;
+    height: 50px;
     width: auto;
     transform: rotate(-90deg);
-    float: right;
 }
-
-/* Styles for liked state */
-.like-button.liked img {
-    filter: brightness(0) invert(1);
-}
-
-.movie-details .text-details {
-    align-self: flex-start; /* Align text to the start of the container (top) */
-    flex: 1; /* Allow text details to fill remaining space */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack items vertically */
-    margin-left: 10px;
-    padding-top: 20px; /* Padding from the top */
-    padding-bottom: 20px;
-    padding-right: 10px;
-    height: 90%;
-}
-
-.movie-details .text-details h2 {
-    font-size: 40px; /* Adjust font size */
-    margin-bottom: 10px; /* Add margin at the bottom of the title */
-    padding-top: 5px;
-}
-
-.movie-details .text-details span {
-    font-size: 20px;
-    align-self: flex-start; /* Align directors and actors at the top */
-}
-
-.movie-details .text-details p {
-    font-size: 20px;
-    text-align: justify; /* Justify text */
-    margin: 0; /* Remove default margin */
-    margin-top: 8px; /* Add margin at the top */
-}
-
-.text-details #top-movie-description {
-    font-size: 20px; /* Description font size */
-}
+*/
 
 /* Navigation Box Styles */
 .navigation-header {
-    color: #5943a8;
-    padding: 10px;
+    color: rgba(163, 146, 235, 0.8); 
+    padding-bottom: 10px; 
+    padding-left: 3%;
+    box-sizing: border-box; 
+    display: flex; 
+    justify-content: flex-start; 
 }
+
 
 .navigation-header h2 {
     margin: 0;
 }
 
 .navigation-box {
-    width: calc(100% - 20px);
+    width: 97%;
     margin: 0 auto;
     background-color: rgba(163, 146, 235, 0.9);
     padding: 5px;
     box-sizing: border-box;
-    overflow-x: hidden;
+    border-radius: 5px; 
     position: relative;
 }
 
@@ -228,23 +194,6 @@ ul {
     margin-top: 0;
 }
 
-.prev-button, .next-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    padding: 5px;
-    font-size: 24px;
-}
-
-.prev-button {
-    left: 5px;
-}
-
-.next-button {
-    right: 5px;
-}
 
 /* Movie Images Styles */
 .movie-images {
@@ -258,23 +207,15 @@ ul {
 }
 
 .movie-images img {
-    width: 225px;
-    height: 150px;
+    width: 160px;
+    height: 225px;
     margin-right: 10px;
     object-fit: cover;
-    transition: transform 0.3s ease; /* Changed transition to transform */
-    scroll-snap-align: start; /* Ensures smooth snapping of images */
+    transition: transform 0.3s ease; 
+    scroll-snap-align: start; 
     border-radius: 5px;
 }
 
 .movie-images img:hover {
-    transform: scale(1.1); /* Slightly increase size on hover */
-}
-
-#movie-player {
-    width: 800px; /* Set width to half of the box minus 7.5px */
-    height: 450px; /* Fixed height */
-    padding: 5px 0; /* Padding on top and bottom */
-    margin-right: 5px; /* Margin between image and text */
-    border-radius: 10px;
+    transform: scale(1.1); 
 }
