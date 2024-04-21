@@ -219,3 +219,58 @@ ul {
 .movie-images img:hover {
     transform: scale(1.1); 
 }
+
+/* Style for the login form */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%;
+    text-align: center; 
+    color: #291c59; 
+}
+
+.login-container form {
+    max-width: 400px; 
+    padding: 20px; 
+    border-radius: 10px; 
+    background-color: rgba(163, 146, 235, 0.9);
+}
+
+.login-container h1 {
+    color: #291c59;
+}
+
+.signup-link {
+    color: #291c59; 
+    text-decoration: none;
+}
+
+.signup-link:hover {
+    color: #ffffff; 
+    text-decoration: underline; 
+}
+
+
+/* Style for the signup form */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%;
+    text-align: center; 
+    color: #291c59; 
+}
+
+
+.signup-container form {
+    max-width: 400px; 
+    padding: 20px; 
+    border-radius: 10px; 
+    background-color: rgba(163, 146, 235, 0.9);
+}
+
+.signup-container h1 {
+    color: #291c59; 
+}
+
