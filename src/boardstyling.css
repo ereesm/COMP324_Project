@@ -274,3 +274,11 @@ ul {
     color: #291c59; 
 }
 
+
+#movie-player {
+    width: 800px; /* Set width to half of the box minus 7.5px */
+    height: 450px; /* Fixed height */
+    padding: 5px 0; /* Padding on top and bottom */
+    margin-right: 5px; /* Margin between image and text */
+    border-radius: 10px;
+}
